@@ -1,8 +1,10 @@
 #!/bin/bash
+#Deploy dashboard
 echo "Deployment dashboard-v2.7.0"
 kubectl apply -f dashboard-v2.7.0.yaml
-sleep 10
+sleep 5
 
+#Create cert using openssl
 echo "Create kubernetes-dashboard-certs, SSL using Openssl"
 sudo mkdir certs
 sudo chmod 777 -R certs
@@ -12,8 +14,6 @@ sudo chmod -R 777 certs
 kubectl create secret generic kubernetes-dashboard-certs --from-file=certs -n kubernetes-dashboard
 sleep 5
 
-#Install dashboard
-echo "Installing dashboard"
 kubectl apply -f admin-user.yaml
 sleep 5s
 
