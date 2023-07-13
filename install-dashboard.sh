@@ -1,4 +1,8 @@
 #!/bin/bash
+echo "Deployment dashboard-v2.7.0"
+kubectl apply -f install-dashboard.sh
+sleep 10
+
 echo "Create kubernetes-dashboard-certs, SSL using Openssl"
 sudo mkdir certs
 sudo chmod 777 -R certs
